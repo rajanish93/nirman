@@ -18,6 +18,12 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+// add_filter( 'login_url', 'custom_login_url', PHP_INT_MAX );
+// function custom_login_url( $login_url ) {
+// $login_url = site_url( 'access.php', 'login' );
+// return $login_url;
+// }
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
