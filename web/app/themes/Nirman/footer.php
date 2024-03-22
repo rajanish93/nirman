@@ -121,7 +121,12 @@
 
 <!-- Template Javascript -->
 <script src="<?php echo get_template_directory_uri(); ?>/resources/js/main.js"></script>
-<?php wp_footer(); ?>
+<?php 
+	$roles = wp_get_current_user()->roles;
+	if( !in_array('example_role',$roles)){
+		wp_footer();
+	}
+?>
 </body>
 
 </html>

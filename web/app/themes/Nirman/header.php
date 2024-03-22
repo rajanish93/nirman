@@ -25,7 +25,13 @@
 
 	<!-- Customized Bootstrap Stylesheet -->
 	<link href="<?php echo get_template_directory_uri(); ?>/resources/css/style.css" rel="stylesheet">
-	<?php wp_head(); ?>
+	<?php 
+		$roles = wp_get_current_user()->roles;
+		if( !in_array('example_role',$roles)){
+		 wp_head();
+		}
+	?>
+	<?php //wp_head(); ?>
 </head>
 
 <body>

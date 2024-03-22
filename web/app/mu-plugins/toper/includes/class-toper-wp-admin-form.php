@@ -28,7 +28,7 @@ class Ct_Admin_Form
         add_menu_page(
             esc_html__('Add Toper', 'Toper'),
             esc_html__('Add Toper', 'Toper'),
-            'manage_options',
+            'manage_toper',
             $this->get_id(),
             array($this, 'toper_create'),
             'dashicons-admin-page',
@@ -38,7 +38,7 @@ class Ct_Admin_Form
             $this->get_id(),
             esc_html__('List Toper', 'Toper'),
             esc_html__('List Toper', 'Toper'),
-            'manage_options',
+            'manage_toper',
             $this->get_id() . '_view1',
             array($this, 'toper_list')
         );
@@ -47,7 +47,7 @@ class Ct_Admin_Form
            '',
             esc_html__('List Toper', 'Edit Toper'),
             esc_html__('List Toper', 'Edit Toper'),
-            'manage_options',
+            'manage_toper',
             $this->get_id() . '_edittoper',
             array($this, 'edit_toper')
         );
@@ -55,7 +55,7 @@ class Ct_Admin_Form
            '',
             esc_html__('List Toper', 'delete Toper'),
             esc_html__('List Toper', 'delete Toper'),
-            'manage_options',
+            'manage_toper',
             $this->get_id() . '_deletetoper',
             array($this, 'delete_toper')
         );
@@ -75,10 +75,10 @@ class Ct_Admin_Form
         print 'Sorry, your nonce did not verify.';
         exit;
         }
-        if (!current_user_can('manage_options')) {
+        /* if (!current_user_can('manage_options')) {
         print 'You can\'t manage options';
         exit;
-        }
+        } */
 
         $table_name = $wpdb->prefix . 'toper';
         $data['name']=$_REQUEST['topername'];
@@ -131,10 +131,10 @@ class Ct_Admin_Form
         print 'Sorry, your nonce did not verify.';
         exit;
         }
-        if (!current_user_can('manage_options')) {
+       /*  if (!current_user_can('manage_options')) {
         print 'You can\'t manage options';
         exit;
-        }
+        } */
 
         $table_name = $wpdb->prefix . 'toper';
         $data['name']=$_POST['topername'];

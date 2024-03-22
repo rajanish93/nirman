@@ -684,3 +684,79 @@ return $html;
 }
 
 
+function remove_menus(){
+	// get current login user's role
+	$roles = wp_get_current_user()->roles;
+	//print_r($roles); die; //administrator
+	// test role
+	if( in_array('example_role',$roles)){
+		$role = get_role('example_role');
+		$role->add_cap('manage_toper',true );
+		$role->add_cap('edit_theme_options',true );
+		$role->add_cap('edit_posts',true );
+		$role->add_cap('edit_private_pages',true );
+		$role->add_cap('edit_private_posts',true );
+		$role->add_cap('edit_published_pages',true );
+		$role->add_cap('edit_published_posts',true );
+		$role->add_cap('publish_posts',true );
+		$role->add_cap('publish_pages',true );
+		$role->add_cap('edit_others_pages',true );
+		$role->add_cap('edit_others_posts',true );
+		$role->add_cap('delete_others_pages',true );
+		$role->add_cap('delete_pages',true );
+		$role->add_cap('delete_posts',true );
+		$role->add_cap('delete_others_posts',true );
+		$role->add_cap('delete_published_pages',true );
+		$role->add_cap('delete_published_posts',true );
+		$role->add_cap('delete_private_posts',true );
+		$role->add_cap('delete_private_pages',true );
+		//remove menu from site backend.
+		// remove_menu_page( 'index.php' ); //Dashboard
+		// //remove_menu_page( 'edit.php' ); //Posts
+		// //remove_menu_page( 'upload.php' ); //Media
+		// //remove_menu_page( 'edit.php?post_type=page' ); //Pages
+		// //remove_menu_page( 'plugins.php' ); //Plugins
+		// remove_menu_page( 'edit-comments.php' ); //Comments
+		 remove_menu_page( 'tools.php' ); //Tools
+		// remove_menu_page( 'options-general.php' ); //Settings
+		 remove_submenu_page( 'themes.php', 'themes.php' );
+		 remove_submenu_page( 'themes.php', 'customize.php' );
+
+		remove_menu_page('wpcf7'); // contact form 7 menu
+	}else if(in_array('administrator',$roles)){
+		$role = get_role('example_role');
+		$role->add_cap('edit_theme_options',true );
+		$role->add_cap('manage_toper',true );
+		//remove_menu_page( 'themes.php' ); //Appearance
+		// remove_menu_page( 'users.php' ); //Users
+	}
+	
+}
+add_action( 'admin_menu', 'remove_menus' , 100 );
+
+function example_admin_bar_remove_logo()
+ {
+	global $wp_admin_bar; 
+	$wp_admin_bar->remove_menu( 'wp-logo' );
+ }
+add_action('wp_before_admin_bar_render', 'example_admin_bar_remove_logo', 0
+);
+
+
+function wpeagles_example_role()
+{
+add_role(
+		'example_role',
+		'example Role',
+		[
+		// list of capabilities for this role
+		'read' => true,
+		'edit_posts' => true,
+		'upload_files' => true,
+		'manage_toper' => true,
+		]
+	);
+}
+
+// add the example_role
+add_action('init', 'wpeagles_example_role');
