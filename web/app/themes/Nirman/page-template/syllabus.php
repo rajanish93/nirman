@@ -129,31 +129,6 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                 </div>
 
 
-                <div class="rounded overflow-hidden mb-2">
-
-                    <div class="bg-secondary p-4">
-
-                        <div class="h5" href="">Archives by Date</div>
-                        <div class="border-top mt-4 pt-4">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="date-pciker-outer"><input type="text"
-                                            class="form-control form-control-lg" placeholder="Start Date"></div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="date-pciker-outer"><input type="text"
-                                            class="form-control form-control-lg" placeholder="End Date"></div>
-                                </div>
-                            </div>
-                            <div class="row mt-4"><button class="btn btn-primary py-2 px-4 m-auto" type="submit"
-                                    id="sendMessageButton">Submit</button></div>
-                            <div class="clearfix"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
 
                 <!-- Recent Post -->
                 <div class="mb-5 mt-4">

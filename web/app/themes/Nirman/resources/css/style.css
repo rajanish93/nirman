@@ -34,7 +34,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Poppins", sans-serif;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
 
 *,
@@ -56,7 +56,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -4142,7 +4142,6 @@ input[type="button"].btn-block {
 
 .navbar-nav li {
  border-bottom: 1px solid #dad7d7;
- padding: 10px;
 }
 
 .navbar-nav li:last-child{border: none; padding-bottom: 0;}
@@ -10171,4 +10170,54 @@ box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.64);
 .topers-download a h5:hover{background-color:var(--dark-red); color: #ffffff!important;}
 .practice-question{border-bottom:1px solid #f5e2e1; padding-bottom: 20px;}
 
+.testimonials, .affairs, .video-home { background:#ffffff;}
 
+#wpadminbar .ab-sub-wrapper, #wpadminbar ul, #wpadminbar ul li{dispaly:none;}
+
+/* Hide sub-menus by default */
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 15rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #6C6A74;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+/* Style for hover effect */
+.menu-item:hover .sub-menu {
+    display: block;
+}
+
+/* Style for sub-menu links */
+.sub-menu .menu-item {
+    display: block;
+}
+
+ .sub-menu a { color:#ff0000 !important;}
+.menu-item-has-children{position: relative !important;}
+..menu-item-has-children::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  float: right;
+}
+.navbar-nav ul{
+margin: 0 0 1.5em 0em !important;
+    margin-bottom: 1.5em;}

@@ -78,15 +78,8 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 
                           <div class="h5" href="">To View Editorial, please select date below</div>
                           <div class="border-top mt-4 pt-2">
-                              <div class="row">
-                                  <div class="col-lg-12">
-                                      <div class="date-pciker-outer"><input type="text"
-                                              class="form-control form-control-lg" placeholder="Date"></div>
-                                  </div>
-                              </div>
-                              <div class="row mt-4 pt-2"><button class="btn btn-primary py-2 px-4 m-auto" type="submit"
-                                      id="sendMessageButton">Submit</button></div>
-                              <div class="clearfix"></div>
+                              <?php $education_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'education' ), convert_smilies( ':)' ) ) . '</p>';
+					            the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$education_archive_content" );?>
 
                           </div>
 

@@ -1,23 +1,29 @@
 (function ($) {
     "use strict";
     
-    // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
-            } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
+// JavaScript code to handle dropdown menus
+document.addEventListener("DOMContentLoaded", function() {
+    var menuItems = document.querySelectorAll('.menu-item');
+
+    // Loop through each menu item
+    menuItems.forEach(function(item) {
+        // Add event listener for mouseenter to show sub-menu
+        item.addEventListener('mouseenter', function() {
+            var subMenu = this.querySelector('.sub-menu');
+            if (subMenu) {
+                subMenu.style.display = 'block';
             }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
+        });
+
+        // Add event listener for mouseleave to hide sub-menu
+        item.addEventListener('mouseleave', function() {
+            var subMenu = this.querySelector('.sub-menu');
+            if (subMenu) {
+                subMenu.style.display = 'none';
+            }
+        });
     });
-    
+});
     
     // Back to top button
     $(window).scroll(function () {

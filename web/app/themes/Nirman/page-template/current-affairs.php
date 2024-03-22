@@ -82,31 +82,10 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                                <?php endforeach;   ?>
                                
                               
-                               <a class="d-flex align-items-center text-decoration-none mb-3" href="">
-
-
-                                   <div class="rounded overflow-hidden mb-2">
-
-                                       <div class="bg-secondary p-4">
-
-                                           <div class="h5" href="">To View Old News, please select date below</div>
-                                           <div class="border-top mt-4 pt-4">
-                                               <div class="row">
-                                                   <div class="date-pciker-outer"><input type="text"
-                                                           class="form-control form-control-lg" id=""
-                                                           placeholder="Insert Date"></div>
-                                               </div>
-                                               <div class="row mt-4"><button class="btn btn-primary py-2 px-4 m-auto"
-                                                       type="submit" id="sendMessageButton">Search</button></div>
-                                               <div class="clearfix"></div>
-
-                                           </div>
-
-                                       </div>
-
-                                   </div>
-
-                               </a>
+                            <div class="row mt-4">
+                                <a class="btn btn-primary py-2 px-4 m-auto" >Learn More</a>
+                            </div>
+                           
                            </div>
 
                        </div>
@@ -161,32 +140,10 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                                    </div>
                                </a>
                             <?php endforeach;   ?>
-                               
-                               <a class="d-flex align-items-center text-decoration-none mb-3" href="">
-
-
-                                   <div class="rounded overflow-hidden mb-2">
-
-                                       <div class="bg-secondary p-4">
-
-                                           <div class="h5" href="">To View Old News , please select date below</div>
-                                           <div class="border-top mt-4 pt-4">
-                                               <div class="row">
-                                                   <div class="date-pciker-outer"><input type="text"
-                                                           class="form-control form-control-lg" id=""
-                                                           placeholder="Insert Date"></div>
-                                               </div>
-                                               <div class="row mt-4"><button class="btn btn-primary py-2 px-4 m-auto"
-                                                       type="submit" id="sendMessageButton">Search</button></div>
-                                               <div class="clearfix"></div>
-
-                                           </div>
-
-                                       </div>
-
-                                   </div>
-
-                               </a>
+                               <div class="row mt-4">
+                                   <a class="btn btn-primary py-2 px-4 m-auto">Learn More</a>
+                               </div>
+                             
                            </div>
 
                        </div>
@@ -226,39 +183,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                        </ul>
                    </div>
 
-                   <!-- Dates -->
-                   <div class="mb-5">
-
-
-                   </div>
-
-
-                   <div class="rounded overflow-hidden mb-2">
-
-                       <div class="bg-secondary p-4">
-
-                           <div class="h5" href="">Archives by Date</div>
-                           <div class="border-top mt-4 pt-4">
-                               <div class="row">
-                                   <div class="col-lg-6">
-                                       <div class="date-pciker-outer"><input type="text"
-                                               class="form-control form-control-lg" placeholder="Start Date"></div>
-                                   </div>
-                                   <div class="col-lg-6">
-                                       <div class="date-pciker-outer"><input type="text"
-                                               class="form-control form-control-lg" placeholder="End Date"></div>
-                                   </div>
-                               </div>
-                               <div class="row mt-4"><button class="btn btn-primary py-2 px-4 m-auto" type="submit"
-                                       id="sendMessageButton">Submit</button></div>
-                               <div class="clearfix"></div>
-
-                           </div>
-
-                       </div>
-
-                   </div>
-
+                   
                       <!-- Recent Post -->
                       <div class="mb-5 mt-4">
                           <h3 class="text-uppercase mb-4 mt-5">Recent Post</h3>
@@ -302,7 +227,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 
                           <?php endforeach; wp_reset_query(); ?>
 
-
+                            
                       </div>
 
                </div>

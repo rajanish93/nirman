@@ -20,7 +20,8 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 	<!-- Libraries Stylesheet -->
-	<link href="<?php echo get_template_directory_uri(); ?>/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/resources/lib/owlcarousel/assets/owl.carousel.min.css"
+		rel="stylesheet">
 
 	<!-- Customized Bootstrap Stylesheet -->
 	<link href="<?php echo get_template_directory_uri(); ?>/resources/css/style.css" rel="stylesheet">
@@ -35,7 +36,7 @@
 				<div class="col-lg-3">
 
 					<!-- <img src="<?php echo get_template_directory_uri(); ?>/resources/img/logo.png"> -->
-				<?php the_custom_logo(); ?>
+					<?php the_custom_logo(); ?>
 
 				</div>
 				<div class="col-lg-3 text-right">
@@ -90,7 +91,7 @@
 				</button>
 				<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 					<div class="navbar-nav py-0">
-						 <?php
+						<?php
 							if ( has_nav_menu( 'menu-1' ) ) {
 								wp_nav_menu( array( 
 									'menu' => 'menu',
@@ -103,6 +104,7 @@
 									'theme_location' => 'menu-1',
 									//'add_li_class' => 'nav-item',
 									'add_a_class' => 'nav-item nav-link',
+									
 									) ); 
 								}
 							?>
@@ -115,5 +117,3 @@
 		</div>
 	</div>
 	<!-- Navbar End -->
-
-

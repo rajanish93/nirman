@@ -106,9 +106,9 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 
                     <!-- Search Form -->
                     <div class="mb-5">
-                        <form action="">
+                        <form role="search" action="">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-lg" placeholder="Keyword">
+                                <input type="search" class="form-control form-control-lg" placeholder="Keyword" name="s">
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-transparent text-primary"><i
                                             class="fa fa-search"></i></span>
@@ -128,7 +128,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                             echo '<li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                 <a href="'. get_category_link($category->term_id) . '"
                                     class="text-decoration-none h6 m-0">'.$category->name . '</a>
-                                <span class="badge badge-primary badge-pill">150</span>
+                                 <span class="badge badge-primary badge-pill">'.$category->category_count.'</span>
                             </li>';
                             }?>
                             

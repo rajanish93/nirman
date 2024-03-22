@@ -18,6 +18,11 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+add_action('init', 'do_output_buffer');
+function do_output_buffer() {
+	ob_start();
+}
+
 // add_filter( 'login_url', 'custom_login_url', PHP_INT_MAX );
 // function custom_login_url( $login_url ) {
 // $login_url = site_url( 'access.php', 'login' );
@@ -276,6 +281,25 @@ add_action( 'widgets_init', 'siderbarregister' );
 		return $classes;
 	}
 	add_filter('nav_menu_css_class','add_classes_on_li',1,3);
+
+
+	function my_nav_menu_submenu_css_class( $classes ,$item, $args) {
+
+		$classes[] = 'dropdown';
+		
+		return $classes;
+	}
+	add_filter( 'nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class',1,3 );
+
+	function add_classname_to_parent_nav_link($atts, $item) {
+
+	// add class only on parent
+	if($item->menu_item_parent == 0) {
+		//$atts['class'] = 'dropdown2';
+	}
+		return $atts;
+	}
+	add_filter('nav_menu_link_attributes', 'add_classname_to_parent_nav_link',1, 3);
 
 // Admin footer modification
 
