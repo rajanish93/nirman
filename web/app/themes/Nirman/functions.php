@@ -724,7 +724,7 @@ function remove_menus(){
 
 		remove_menu_page('wpcf7'); // contact form 7 menu
 	}else if(in_array('administrator',$roles)){
-		$role = get_role('example_role');
+		$role = get_role('administrator');
 		$role->add_cap('edit_theme_options',true );
 		$role->add_cap('manage_toper',true );
 		//remove_menu_page( 'themes.php' ); //Appearance
