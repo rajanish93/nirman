@@ -322,7 +322,7 @@ function create_Testimonials_posttype() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'Testimonials'),
+			'rewrite' => array('slug' => 'testimonials'),
 			'show_in_rest' => true,
 			 'supports' => array( 'title', 'excerpt','custom-fields',
 			 'menu_icon' => 'dashicons-book',
@@ -355,7 +355,7 @@ function create_Testimonials_posttype() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'Daily News'),
+			'rewrite' => array('slug' => 'dailynews'),
 			'show_in_rest' => true,
 			'supports' => array( 'title', 'editor','custom-fields','thumbnail'
 			 ),
@@ -370,7 +370,7 @@ function create_Testimonials_posttype() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'Home Page Slider'),
+			'rewrite' => array('slug' => 'homepageslider'),
 			'show_in_rest' => true,
 			'supports' => array( 'title', 'excerpt','custom-fields','thumbnail'
 			 ),
@@ -385,7 +385,7 @@ function create_Testimonials_posttype() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'Popular Courses'),
+			'rewrite' => array('slug' => 'popularcourses'),
 			'show_in_rest' => true,
 			'supports' => array( 'title','editor', 'excerpt','custom-fields','thumbnail'
 			 ),
@@ -400,7 +400,7 @@ function create_Testimonials_posttype() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'Our Videos'),
+			'rewrite' => array('slug' => 'ourvideo'),
 			'show_in_rest' => true,
 			'supports' => array( 'title','custom-fields','thumbnail'
 			 ),

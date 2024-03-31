@@ -68,7 +68,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
                                   }
 
                                   $newsLink=get_permalink( $value->ID );
-                                  
+                                 // echo $newsLink; die;
                                 ?>
 
                                <a class="d-flex align-items-center text-decoration-none mb-3"
