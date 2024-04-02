@@ -1,11 +1,22 @@
 <?php
 /**
  * Template Name: Pcs Page
- * Template Post Type: post, page
- * The template for displaying Home Page
-
- *
  */
+
+ function upsc_state_data(){
+
+    global $wpdb;
+    $page_slug=basename(get_permalink());
+    //echo $page_slug; die;
+    $user_query = "SELECT * FROM `wp_upsc_state_link` WHERE `state` = '$page_slug'";
+
+    $query_results = $wpdb->get_results( $user_query, ARRAY_A );
+    // return result array to prepare_items.
+    return $query_results;
+ }
+    //print_r(upsc_state_data() ); die;
+
+    $upsc_state_data=upsc_state_data();
 ?>
 <!doctype html>
 <?php get_header(); ?>
@@ -28,136 +39,28 @@
         <div class="container pt-5 pb-3">
 
             <div class="row">
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/study-pattern.png" alt="">
-                                <div class="team-social">
+
+                <?php foreach ($upsc_state_data as $key => $value):?>
+
+                    <div class="col-md-4 col-lg-3 text-center team mb-4">
+                        <a href="<?php echo $value['link'];?>">
+                            <div class="team-item rounded overflow-hidden mb-2">
+                                <div class="team-img position-relative">
+                                    <img class="" src="<?php echo get_template_directory_uri(); ?>/resources/img/study-pattern.png"
+                                        alt="">
+                                    <div class="team-social">
+
+                                    </div>
+                                </div>
+                                <div class="current-bg p-2">
+                                    <h5><?php echo $value['title'];?></h5>
 
                                 </div>
                             </div>
-                            <div class="current-bg p-2">
-                                <h5>Exam Pattern</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/strategy.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>Strategy</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/syllabus.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>Syllabus</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/gk.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>State GK</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/Consolidation.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>Monthly Current Affairs</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/previous-year.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>Previous Year Papers</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/exam-notification.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>MP Exams Notification</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-3 text-center team mb-4">
-                    <a href="#">
-                        <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="" src="img/faq.png" alt="">
-                                <div class="team-social">
-
-                                </div>
-                            </div>
-                            <div class="current-bg p-2">
-                                <h5>FAQs</h5>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <?php endforeach;?>
+               
 
             </div>
         </div>

@@ -407,6 +407,20 @@ function create_Testimonials_posttype() {
 
 		)
 	);
+	register_post_type('previous-year-paper',
+		array(
+			'labels' => array(
+			'name' => __( 'Previous Year Paper' ),
+			'singular_name' => __( 'Previous Year Paper' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'previous-year-paper'),
+			'show_in_rest' => true,
+			'supports' => array( 'title','custom-fields'),
+
+		)
+	);
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_Testimonials_posttype' );
