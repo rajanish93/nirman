@@ -13,7 +13,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 <div class="container-fluid page-header">
 	<div class="container">
 		<div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-			<h3 class="display-4 text-white text-uppercase">Blog </h3>
+			<h3 class="display-4 text-white text-uppercase"><?php the_title();?> </h3>
 			
 		</div>
 	</div>

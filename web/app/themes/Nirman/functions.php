@@ -421,6 +421,35 @@ function create_Testimonials_posttype() {
 
 		)
 	);
+
+	register_post_type('important-note',
+		array(
+			'labels' => array(
+			'name' => __( 'Important Note' ),
+			'singular_name' => __( 'Important Note' )
+		),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'important-note'),
+			'show_in_rest' => true,
+			'supports' => array( 'title','editor'),
+
+		)
+	);
+	register_post_type('essay',
+		array(
+			'labels' => array(
+			'name' => __( 'Essay' ),
+			'singular_name' => __( 'Essay' )
+		),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'essay'),
+			'show_in_rest' => true,
+			'supports' => array( 'title','editor'),
+
+		)
+	);
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_Testimonials_posttype' );
