@@ -5,6 +5,12 @@
  */
 $pid = get_the_id();
 $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
+if (wp_get_post_parent_id(get_the_ID()))
+{
+$parentPageTitle="MAIN";
+}else{
+$parentPageTitle="PRELIMS";
+}
 ?>
 
 <?php get_header(); ?>
@@ -13,11 +19,13 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 <div class="container-fluid page-header">
     <div class="container">
         <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-            <h3 class="display-4 text-white text-uppercase">Previous year pape</h3>
+            <h3 class="display-4 text-white text-uppercase"><?php echo $parentPageTitle;?> </h3>
             <div class="d-inline-flex text-white">
-                <p class="m-0 text-uppercase"><a class="text-white" href="/">Home</a></p>
+                <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                 <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                <p class="m-0 text-uppercase">Previous year pape</p>
+                <p class="m-0 text-uppercase"><?php echo $parentPageTitle;?></p>
+                <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                <p class="m-0 text-uppercase"><?php the_title(); ?></p>
             </div>
         </div>
     </div>

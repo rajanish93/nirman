@@ -5,6 +5,12 @@
  */
 $pid = get_the_id();
 $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
+if (wp_get_post_parent_id(get_the_ID()))
+{
+$parentPageTitle="MAIN";
+}else{
+$parentPageTitle="PRELIMS";
+}
 ?>
 
 <?php get_header(); ?>
@@ -16,7 +22,7 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
             <h3 class="display-4 text-white text-uppercase">Essy</h3>
             <div class="d-inline-flex text-white">
                 <p class="m-0 text-uppercase"><a class="text-white" href="/">Home</a></p>
-                <i class="fa fa-angle-double-right pt-1 px-3">PRELIMS</i>
+                <i class="fa fa-angle-double-right pt-1 px-3"><?php echo $parentPageTitle;?></i>
                 <p class="m-0 text-uppercase">Essay</p>
             </div>
         </div>
