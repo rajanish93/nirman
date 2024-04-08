@@ -55,6 +55,15 @@ $parentPageTitle="PRELIMS";
                     //print_r($previousYearPaper); die;
                     foreach ($previousYearPaper as $value) :?>
 
+                    <?php 
+                        // $isMain= get_field( 'previous_year_paper', $value->ID );
+                        // echo 111 . $isMain;die;
+                        // if (wp_get_post_parent_id(get_the_ID()) && $isMain=='main')
+                        // {
+                        //   echo ""; die;
+                        // }
+                    ?>
+
                     <?php
                         $postDaate=date("M d, Y",strtotime($value->post_date));
 
@@ -67,7 +76,7 @@ $parentPageTitle="PRELIMS";
 
                         $newsLink=get_permalink( $value->ID );
                         // echo $newsLink; die;
-                        $file = get_field( 'previous-year-paper', $value->ID );
+                        $file = get_field( 'previous_year_paper', $value->ID );
                         //print_r($file); die;
                     ?>
 
