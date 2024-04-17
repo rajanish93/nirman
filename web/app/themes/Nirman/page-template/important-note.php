@@ -65,7 +65,7 @@ $parentPageTitle="PRELIMS";
                         $articalThubUrl="/artical.png";
                         }
 
-                        $newsLink=get_permalink( $value->ID );
+                        $permalink=get_permalink( $value->ID );
                         // echo $newsLink; die;
                         $file = get_field( 'previous-year-paper', $value->ID );
                         //print_r($file); die;
@@ -74,12 +74,14 @@ $parentPageTitle="PRELIMS";
                     <div class="col-md-3 col-lg-3 text-center team mb-4">
                         <div class="team-item rounded overflow-hidden mb-2">
                             <div class="bg-secondary p-4">
-                                <h5><?php echo $value->post_title;?></h5>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $postDaate;?></p>
-                                <!-- <p class="m-0"><a target="_blank" href="<?php echo $file;?>"> <i class="fa fa-download" aria-hidden="true"></i> Download</a></p> -->
+                                <a href="<?php echo $permalink; ?>">
+                                    <h5><?php echo $value->post_title;?></h5>
+                                    <p><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $postDaate;?></p>
+                                 </a>
                             </div>
                         </div>
                     </div>
+                    
                     <?php endforeach;   ?>
 
                 </div>

@@ -402,8 +402,8 @@ function create_Testimonials_posttype() {
 			'has_archive' => true,
 			'rewrite' => array('slug' => 'ourvideo'),
 			'show_in_rest' => true,
-			'supports' => array( 'title','custom-fields','thumbnail'
-			 ),
+			'supports' => array( 'title','custom-fields','thumbnail'),
+			'taxonomies' => array( 'category')
 
 		)
 	);
@@ -698,9 +698,10 @@ $html = "";
 $args = array(
 	'post_status' => 'publish',
 	'post_type' => 'ourvideo',
-	'posts_per_page' => -1,
+	'posts_per_page' => 4,
 	'orderby' => 'ID',
 	'order' => 'DESC',
+	//'category' => 20
 );
 
 $ourvideo = get_posts($args);

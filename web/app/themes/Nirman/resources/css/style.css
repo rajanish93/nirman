@@ -9772,10 +9772,9 @@ h6,
 }
 
 .navbar-light .navbar-nav .nav-link {
-  padding: 20px 26px;
+ padding: 20px 20px;
   color: #fff;
-  font-size: 16px;
-
+  font-size: 14px;
   outline: none;
 }
 

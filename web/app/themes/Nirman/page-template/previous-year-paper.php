@@ -8,8 +8,10 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 if (wp_get_post_parent_id(get_the_ID()))
 {
 $parentPageTitle="MAIN";
+$metaValue="Main";
 }else{
 $parentPageTitle="PRELIMS";
+$metaValue="Prelims";
 }
 ?>
 
@@ -49,20 +51,13 @@ $parentPageTitle="PRELIMS";
                         'posts_per_page' => -1,
                         'orderby' => 'ID',
                         'order' => 'DESC',
+                        'meta_key' => 'for_mainprelims',
+                        'meta_value' => $metaValue
                     );
 
                     $previousYearPaper = get_posts($args);
                     //print_r($previousYearPaper); die;
                     foreach ($previousYearPaper as $value) :?>
-
-                    <?php 
-                        // $isMain= get_field( 'previous_year_paper', $value->ID );
-                        // echo 111 . $isMain;die;
-                        // if (wp_get_post_parent_id(get_the_ID()) && $isMain=='main')
-                        // {
-                        //   echo ""; die;
-                        // }
-                    ?>
 
                     <?php
                         $postDaate=date("M d, Y",strtotime($value->post_date));
