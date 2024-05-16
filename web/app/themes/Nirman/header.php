@@ -1,12 +1,21 @@
+<?php
+$postId = get_the_ID();
+
+$title = get_field('title', $postId);
+$metakewords = get_field('meta_keywords', $postId);
+$metadesrcreption = get_field('meta_description', $postId);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
-	<title>Nirman IAS</title>
+	<title><?php echo $title; ?></title>
+	<meta content="<?php echo $metakewords; ?>" name="keywords">
+	<meta content="<?php echo $metadesrcreption; ?>" name="description">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="Nirman IAS" name="keywords">
-	<meta content="Nirman IAS" name="description">
+
 
 	<!-- Favicon -->
 	<link href="<?php echo get_template_directory_uri(); ?>/resources/img/favicon.ico" rel="icon">
@@ -20,18 +29,18 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 	<!-- Libraries Stylesheet -->
-	<link href="<?php echo get_template_directory_uri(); ?>/resources/lib/owlcarousel/assets/owl.carousel.min.css"
-		rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
 	<!-- Customized Bootstrap Stylesheet -->
 	<link href="<?php echo get_template_directory_uri(); ?>/resources/css/style.css" rel="stylesheet">
-	<?php 
-		$roles = wp_get_current_user()->roles;
-		if( !in_array('example_role',$roles)){
-		 wp_head();
-		}
+	<?php
+	$roles = wp_get_current_user()->roles;
+	if (!in_array('example_role', $roles)) {
+		wp_head();
+	}
 	?>
-	<?php //wp_head(); ?>
+	<?php //wp_head(); 
+	?>
 </head>
 
 <body>
@@ -50,8 +59,8 @@
 						<i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
 						<div class="text-left">
 							<h6 class="font-weight-semi-bold mb-1">Our Office</h6>
-							<small><?php if ( is_active_sidebar( 'office' ) ) { ?>
-								<?php dynamic_sidebar('office'); ?>
+							<small><?php if (is_active_sidebar('office')) { ?>
+									<?php dynamic_sidebar('office'); ?>
 								<?php } ?></small>
 						</div>
 					</div>
@@ -61,8 +70,8 @@
 						<i class="fa fa-2x fa-envelope text-primary mr-3"></i>
 						<div class="text-left">
 							<h6 class="font-weight-semi-bold mb-1">Email Us</h6>
-							<small><?php if ( is_active_sidebar( 'email' ) ) { ?>
-								<?php dynamic_sidebar('email'); ?>
+							<small><?php if (is_active_sidebar('email')) { ?>
+									<?php dynamic_sidebar('email'); ?>
 								<?php } ?></small>
 						</div>
 					</div>
@@ -72,8 +81,8 @@
 						<i class="fa fa-2x fa-phone text-primary mr-3"></i>
 						<div class="text-left">
 							<h6 class="font-weight-semi-bold mb-1">Call Us</h6>
-							<small><?php if ( is_active_sidebar( 'phone' ) ) { ?>
-								<?php dynamic_sidebar('phone'); ?>
+							<small><?php if (is_active_sidebar('phone')) { ?>
+									<?php dynamic_sidebar('phone'); ?>
 								<?php } ?></small>
 						</div>
 					</div>
@@ -98,22 +107,22 @@
 				<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 					<div class="navbar-nav py-0">
 						<?php
-							if ( has_nav_menu( 'menu-1' ) ) {
-								wp_nav_menu( array( 
-									'menu' => 'menu',
-									'container' => 'div',
-									'container_class' => 'container_class',
-									'container_id' => 'container_id',
-									'menu_class' => 'nav-item dropdown',
-									'items_wrap' => '<div id="%1$s" class="navbar-nav py-0">%3$s</div>',
-									'item_spacing' => 'preserve',
-									'theme_location' => 'menu-1',
-									//'add_li_class' => 'nav-item',
-									'add_a_class' => 'nav-item nav-link',
-									
-									) ); 
-								}
-							?>
+						if (has_nav_menu('menu-1')) {
+							wp_nav_menu(array(
+								'menu' => 'menu',
+								'container' => 'div',
+								'container_class' => 'container_class',
+								'container_id' => 'container_id',
+								'menu_class' => 'nav-item dropdown',
+								'items_wrap' => '<div id="%1$s" class="navbar-nav py-0">%3$s</div>',
+								'item_spacing' => 'preserve',
+								'theme_location' => 'menu-1',
+								//'add_li_class' => 'nav-item',
+								'add_a_class' => 'nav-item nav-link',
+
+							));
+						}
+						?>
 					</div>
 
 				</div>
