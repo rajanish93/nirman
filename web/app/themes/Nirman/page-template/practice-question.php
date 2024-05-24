@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Practice Question
 
@@ -25,119 +26,138 @@ $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
     </div>
 </div>
 <!-- Header End -->
-    <!-- Team Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-5">
+<!-- Team Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-5">
 
-                <h1>PRACTICE QUESTIONS</h1>
-            </div>
+            <h1>PRACTICE QUESTIONS</h1>
+        </div>
 
-            <div class="row">
-                <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-8">
 
-                   <?php the_content(); ?>
-
-                </div>
-
-                <div class="col-lg-4 mt-5 mt-lg-0">
-
-
-                    <div class="rounded overflow-hidden mb-2">
-
-                       <div class="bg-secondary p-4">
-
-                           <div class="h5" href="">To View Editorial, please select date below</div>
-                           <div class="border-top mt-4 pt-2">
-                               <?php $education_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'education' ), convert_smilies( ':)' ) ) . '</p>';
-					            the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$education_archive_content" );?>
-
-                           </div>
-
-                       </div>
-
-                    </div>
-
-                    <!-- Recent Post -->
-                    <div class="mb-5 mt-4">
-                        <h3 class="text-uppercase mb-4 mt-5">Recent Post</h3>
-
-
-                        <?php $recent_posts = wp_get_recent_posts(array(
-                            'numberposts' => 3, 
-                            'post_type'=> 'post',
-                            'post_status' => 'publish', 
-                            'orderby'          => 'post_date',
-                            'order'            => 'DESC',
-                            //'posts_per_page' => -1,
-                            
-                        ));
-                 //  print_r($recent_posts); die;
-                    foreach($recent_posts as $post) : ?>
-                            <?php
-                            
-                            if(get_the_post_thumbnail($post['ID'], 'full') ){
-                    
-                                $articalThubUrl=get_the_post_thumbnail_url($post['ID'], 'thumbnail');
-                            }else {
-                                $articalThubUrl="/artical.png";
-                            }
-
-                            $permalink=get_permalink( $post['ID'] );
-
-                            $postDaate=date("M d, Y",strtotime($post['post_date']));
-                        ?>
-
-
-
-                        <a class="d-flex align-items-center text-decoration-none mb-3" href="<?php echo $permalink;?>">
-
-                            <div class="pl-0">
-                                <h6 class="m-1"><?php echo $post['post_title'] ?>"</h6>
-                                <small><?php echo $postDaate;?></small>
-                            </div>
-                        </a>
-
-                        <?php endforeach; wp_reset_query(); ?>
-
-                       
-                    </div>
-
-
-                </div>
+                <?php the_content(); ?>
 
             </div>
-            <div class="row text-center">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="rounded overflow-hidden mb-2 ">
 
-                        <div class="bg-secondary p-4">
+            <div class="col-lg-4 mt-5 mt-lg-0">
 
-                            <div class="h5" href="">today Editorial Annalysis</div>
-                            <div class="border-top mt-4">
-                                <div class="row">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315"
-                                            src="https://www.youtube.com/embed/RCd_WC2nsQg?si=JG-kR93GohOfjlAu"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowfullscreen></iframe> </div>
 
-                                </div>
-                                <div class="clearfix"></div>
+                <div class="rounded overflow-hidden mb-2">
 
-                            </div>
+                    <div class="bg-secondary p-4">
+
+                        <div class="h5" href="">To View Editorial, please select date below</div>
+                        <div class="border-top mt-4 pt-2">
+                            <?php $education_archive_content = '<p>' . sprintf(esc_html__('Try looking in the monthly archives. %1$s', 'education'), convert_smilies(':)')) . '</p>';
+                            the_widget('WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$education_archive_content"); ?>
 
                         </div>
 
                     </div>
+
                 </div>
 
+                <!-- Recent Post -->
+                <div class="mb-5 mt-4">
+                    <h3 class="text-uppercase mb-4 mt-5">Recent Post</h3>
+
+
+                    <?php $recent_posts = wp_get_recent_posts(array(
+                        'numberposts' => 3,
+                        'post_type' => 'post',
+                        'post_status' => 'publish',
+                        'orderby'          => 'post_date',
+                        'order'            => 'DESC',
+                        //'posts_per_page' => -1,
+
+                    ));
+                    //  print_r($recent_posts); die;
+                    foreach ($recent_posts as $post) : ?>
+                        <?php
+
+                        if (get_the_post_thumbnail($post['ID'], 'full')) {
+
+                            $articalThubUrl = get_the_post_thumbnail_url($post['ID'], 'thumbnail');
+                        } else {
+                            $articalThubUrl = "/artical.png";
+                        }
+
+                        $permalink = get_permalink($post['ID']);
+
+                        $postDaate = date("M d, Y", strtotime($post['post_date']));
+                        ?>
+
+
+
+                        <a class="d-flex align-items-center text-decoration-none mb-3" href="<?php echo $permalink; ?>">
+
+                            <div class="pl-0">
+                                <h6 class="m-1"><?php echo $post['post_title'] ?>"</h6>
+                                <small><?php echo $postDaate; ?></small>
+                            </div>
+                        </a>
+
+                    <?php endforeach;
+                    wp_reset_query(); ?>
+
+
+                </div>
+
+
+                <!-- Tag Cloud -->
+                <div class="mb-5">
+                    <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h3>
+                    <div class="d-flex flex-wrap m-n1">
+
+                        <?php
+                        $tags = get_tags();
+                        // print_r($tags); die;
+                        foreach ($tags as $tag) :
+
+                            $tag_link = get_tag_link($tag->term_id);
+
+                        ?>
+                            <a href="<?php echo $tag_link; ?>" class="btn btn-outline-primary m-1"><?php echo $tag->name; ?> </a>
+
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+
+
             </div>
+
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="rounded overflow-hidden mb-2 ">
+
+                    <div class="bg-secondary p-4">
+
+                        <div class="h5" href="">today Editorial Annalysis</div>
+                        <div class="border-top mt-4">
+                            <div class="row">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RCd_WC2nsQg?si=JG-kR93GohOfjlAu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
-    <!-- Team End -->
+</div>
+<!-- Team End -->
 
 
 <?php get_footer(); ?>

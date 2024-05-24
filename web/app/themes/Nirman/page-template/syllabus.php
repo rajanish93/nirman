@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Syllabus
 
@@ -6,11 +7,10 @@
 $pid = get_the_id();
 $featured_img_url = get_the_post_thumbnail_url($post->ID, 'full');
 
-if (wp_get_post_parent_id(get_the_ID()))
-{
-$parentPageTitle="MAIN";
-}else{
-$parentPageTitle="PRELIMS";
+if (wp_get_post_parent_id(get_the_ID())) {
+    $parentPageTitle = "MAIN";
+} else {
+    $parentPageTitle = "PRELIMS";
 }
 ?>
 
@@ -20,11 +20,11 @@ $parentPageTitle="PRELIMS";
 <div class="container-fluid page-header">
     <div class="container">
         <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-            <h3 class="display-4 text-white text-uppercase"><?php echo $parentPageTitle;?> </h3>
+            <h3 class="display-4 text-white text-uppercase"><?php echo $parentPageTitle; ?> </h3>
             <div class="d-inline-flex text-white">
                 <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                 <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                <p class="m-0 text-uppercase"><?php echo $parentPageTitle;?></p>
+                <p class="m-0 text-uppercase"><?php echo $parentPageTitle; ?></p>
                 <i class="fa fa-angle-double-right pt-1 px-3"></i>
                 <p class="m-0 text-uppercase"><?php the_title(); ?></p>
             </div>
@@ -54,28 +54,23 @@ $parentPageTitle="PRELIMS";
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             <a href="" class="text-decoration-none h6 m-0">Prelims Test Series 2022</a>
-                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right"
-                                    aria-hidden="true"></i></span>
+                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             <a href="" class="text-decoration-none h6 m-0">Distance Learning Program</a>
-                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right"
-                                    aria-hidden="true"></i></span>
+                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             <a href="" class="text-decoration-none h6 m-0">PCS</a>
-                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right"
-                                    aria-hidden="true"></i></span>
+                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             <a href="" class="text-decoration-none h6 m-0">Practice Quiz</a>
-                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right"
-                                    aria-hidden="true"></i></span>
+                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             <a href="" class="text-decoration-none h6 m-0">Daily Current Affairs and Editorials</a>
-                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right"
-                                    aria-hidden="true"></i></span>
+                            <span class="badge badge-primary badge-pill"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
                         </li>
                     </ul>
                 </div>
@@ -101,11 +96,11 @@ $parentPageTitle="PRELIMS";
                             'orderby' => 'post_date',
                             'order' => 'DESC',
                             //'posts_per_page' => -1,
-                    
+
                         )
                     );
                     //  print_r($recent_posts); die;
-                    foreach ($recent_posts as $post): ?>
+                    foreach ($recent_posts as $post) : ?>
                         <?php
 
                         if (get_the_post_thumbnail($post['ID'], 'full')) {
@@ -138,6 +133,27 @@ $parentPageTitle="PRELIMS";
                     wp_reset_query(); ?>
 
 
+                </div>
+
+
+                <!-- Tag Cloud -->
+                <div class="mb-5">
+                    <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h3>
+                    <div class="d-flex flex-wrap m-n1">
+
+                        <?php
+                        $tags = get_tags();
+                        // print_r($tags); die;
+                        foreach ($tags as $tag) :
+
+                            $tag_link = get_tag_link($tag->term_id);
+
+                        ?>
+                            <a href="<?php echo $tag_link; ?>" class="btn btn-outline-primary m-1"><?php echo $tag->name; ?> </a>
+
+                        <?php endforeach; ?>
+
+                    </div>
                 </div>
 
 
